@@ -1,15 +1,13 @@
 import { chromium, FullConfig } from '@playwright/test';
-import dotenv from 'dotenv';
 
 async function globalSetup(config: FullConfig) {
-    dotenv.config();
     const browser = await chromium.launch();
     const context = await browser.newContext();
     const page = await context.newPage();
 
-    const id = process.env.id ?? '';
-    const username = process.env.username ?? '';
-    const password = process.env.password ?? '';
+    const id = "Nexia";
+    const username = "rbaeza@nexia.cl";
+    const password = "123";
 
     const loginPage = "https://netdoc-qa.nexia.cl/login";
     await page.goto(loginPage);
